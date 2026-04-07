@@ -8,7 +8,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:4200",
-        "https://*.vercel.app",
+        "https://tesis-roomie-front.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
