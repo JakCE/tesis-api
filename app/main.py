@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import recommendations, interactions, matches, weights, explain
+from app.routers import recommendations, interactions, matches, weights, explain, auth
 
 app = FastAPI(title="Roomie Matching API", version="1.0.0")
 
@@ -20,6 +20,7 @@ app.include_router(interactions.router)
 app.include_router(matches.router)
 app.include_router(weights.router)
 app.include_router(explain.router)
+app.include_router(auth.router)
 
 @app.get("/health")
 def health():

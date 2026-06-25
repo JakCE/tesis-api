@@ -1,5 +1,6 @@
 from appwrite.client import Client
 from appwrite.services.tables_db import TablesDB
+from appwrite.services.users import Users
 from appwrite.query import Query
 from appwrite.id import ID
 from app.config import settings
@@ -11,7 +12,8 @@ client.set_endpoint(settings.appwrite_endpoint)
 client.set_project(settings.appwrite_project_id)
 client.set_key(settings.appwrite_api_key)
 
-tablesdb = TablesDB(client)
+tablesdb     = TablesDB(client)
+users_service = Users(client)
 
 DB_ID = settings.database_id
 

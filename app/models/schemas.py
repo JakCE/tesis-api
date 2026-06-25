@@ -62,6 +62,10 @@ class MatchRequest(BaseModel):
     user_b_id:           str
     compatibility_score: float
 
+class RecoverPasswordRequest(BaseModel):
+    email:        str
+    new_password: str
+
 class WeightsSaveRequest(BaseModel):
     w_budget:      float
     w_zone:        float
