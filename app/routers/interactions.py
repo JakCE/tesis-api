@@ -40,11 +40,14 @@ def check_mutual_like(from_user_id: str, to_user_id: str):
 
 @router.get("/seen/{user_id}")
 def get_seen_user_ids(user_id: str):
+    # "skip" no se considera decision definitiva: el perfil debe poder
+    # volver a aparecer en el feed tras un reload. Solo like/dislike excluyen.
     res = cast(dict, tablesdb.list_rows(
         database_id = DB_ID,
         table_id    = COLLECTIONS["interactions"],
         queries     = [
             Query.equal("from_user_id", user_id),
+            Query.equal("action", ["like", "dislike"]),
             Query.limit(500),
         ]
     ))
