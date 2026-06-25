@@ -11,5 +11,6 @@ class Settings(BaseSettings):
     appwrite_api_key:    str
     database_id:         str = "roomie_db"
     groq_api_key:        str = ""
+    recovery_secret:      str = ""
 
 settings = Settings()  # type: ignore[call-arg]
